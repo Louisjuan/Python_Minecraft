@@ -1,1 +1,104 @@
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+mc.postToChat("I'm watching you.")
+while True:
+    x,y,z=mc.player.getTilePos()
+    mc.postToChat("You are located on x:"+str(x)
+                                 +",Y:"+str(y)
+                                 +",z:"+str(z))
+x,y,z=mc.player.getTilePos()
+mc.setBlock(x,y,z+1,35,8)
+mc.setBlock(x,y,z+2,3)
 
+mc.setBlock(x,y,z+3,93)
+mc.setBlock(x,y,z+4,10)
+
+mc.setBlock(x,y,z+5,68)
+mc.setBlock(x,y,z+6,78)
+
+mc.setBlock(x,y,z+7,13)
+mc.setBlock(x,y,z,93)
+
+mc.setBlock(x,y,z,103)
+mc.setBlock(x,y,z,87)
+
+
+x,y,z=mc.player.getTilePos()
+mc.setBlock(x-1,y-1,z+1,73)
+mc.setBlock(x,y-1,z+1,73)
+mc.setBlock(x+1,y-1,z+1,73)
+mc.setBlock(x+1,y-1,z,73)
+mc.setBlock(x+1,y-1,z-1,73)
+mc.setBlock(x,y-1,z-1,73)
+mc.setBlock(x-1,y-1,z-1,73)
+mc.setBlock(x-1,y-1,z,73)
+
+mc.setBlocks(x-150,y-1,z-200,x+150,y-1,78)
+
+import time 
+import random
+from mcpi.minecraft
+ import Minecraft
+mc=Minecraft.create()
+x,y,z=mc.player.getTilePos()
+while True:
+    color= random.randrange(0,16)
+    mc.setBlocks(x+25,y-1,z+30,x-25,y-1,z-30,95,color)
+    time.sleep(0.5)
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()
+pos=mc.player.getTilePos()
+x=pos.x
+y=pos.y
+z=pos.z
+width=45
+height=45
+length=45
+blocktyp=45
+air=0
+mc.setBlocks(x,y,z,x+width,y+height,z+length,blocktyp)
+mc.setBlocks(x+1,y+1,z+1,x+width-1,y+height-1,z+length-1,air)
+import time
+import random
+mc= Minecraft.create()
+while True:
+    color= random.randrange(0,9)
+    x,y,z=mc.player.getTilePos()
+    mc.setBlock(x,y,z,38,color)
+    time.sleep(0.2)
+mc=Minecraft.create()
+pos=mc.player.getTilePos()
+
+while True:
+    x,y,z=mc.player.getTilePos()
+
+    a=mc.getBlock(x+1,y-1,z+1)
+    b=mc.getBlock(x,y-1,z-1)
+    c=mc.getBlock(x-1,y-1,z)
+    d=mc.getBlock(x+1,y-1,z)
+    if a==8 or a==9 or b==8 or b==9 or c==8 or c==9 or d==8 or d==9:
+        mc.setBlocks(x+1,y-1,z+1,x-1,y-1,z-1, 19)
+        
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()  
+x,y,z=mc.player.getTilePos()
+a=0
+while a<5:
+    mc.setBlocks(x+30,y-1,z,x-30,y-10,z,19)
+    z=z-5
+    a=a+1
+from mcpi.minecraft import Minecraft
+mc=Minecraft.create()    
+x,y,z=mc.player.getTilePos()
+try:
+    blockype=int(input("請輸入你要的方塊ID:"))      
+    mc.setBlocks(x+1,y-1,z+1,blockype) 
+except:
+    print("只能輸入數字!!!!!!!!!!!")
+    mc.postToChat("只能輸入數字!!!!!!!")    
+from mcpi.minecraft import Minecraft
+mc = Minecraft.create()
+
+userName = input("請輸入姓名: ")
+message = input("請輸入發言: ")
+mc.postToChat(" ["+userName + "] " + message)
